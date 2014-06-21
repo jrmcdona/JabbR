@@ -820,7 +820,8 @@
                 multiline: $('#multiline-content-template'),
                 lobbyroom: $('#new-lobby-room-template'),
                 otherlobbyroom: $('#new-other-lobby-room-template'),
-                commandConfirm: $('#command-confirm-template')
+                commandConfirm: $('#command-confirm-template'),
+                modalMessage: $('#modal-message-template')
             };
             $reloadMessageNotification = $('#reloadMessageNotification');
             $fileUploadButton = $('.upload-button');
@@ -2084,6 +2085,15 @@
                     this.addMessage(content, 'pm', rooms[r].getName());
                 }
             }
+        },
+        addModalMessage: function(title, message, icon) {
+            var $dialog = templates.modalMessage.tmpl({ Title: title, Body: message, Icon: icon }).appendTo('#dialog-container').modal()
+                .on('hidden.bs.modal', function () {
+                    $dialog.remove();
+                })
+                .on('click', 'a.btn', function () {
+                    $dialog.modal('hide');
+                });
         },
         hasFocus: function () {
             return focus;

@@ -1236,4 +1236,10 @@ Use ? or type /? to display the FAQ and list of commands.</value>
   <data name="Client_OwnerTag" xml:space="preserve">
     <value>owner</value>
   </data>
+  <data name="Chat_YouKickedTitle" xml:space="preserve">
+    <value>Kicked</value>
+  </data>
+  <data name="Client_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>
