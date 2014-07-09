@@ -1245,4 +1245,19 @@ Use ? or type /? to display the FAQ and list of commands.</value>
   <data name="Administration_AppInsightsId" xml:space="preserve">
     <value>AppInsights ID</value>
   </data>
+  <data name="Lmbtfy_CommandInfo" xml:space="preserve">
+    <value>Posts a link instructing how a user can Bing the query for themselves using the lmbtfy.com API.</value>
+  </data>
+  <data name="Lmbtfy_DataRequired" xml:space="preserve">
+    <value>A search query is required.</value>
+  </data>
+  <data name="Lmgtfy_DataRequired" xml:space="preserve">
+    <value>A search query is required.</value>
+  </data>
+  <data name="Lmbtfy_DataRequired" xml:space="preserve">
+    <value>A search query is required.</value>
+  </data>
+  <data name="Lmgtfy_DataRequired" xml:space="preserve">
+    <value>A search query is required.</value>
+  </data>
 </root>
