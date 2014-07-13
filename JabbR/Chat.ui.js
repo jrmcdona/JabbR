@@ -820,7 +820,8 @@
                 multiline: $('#multiline-content-template'),
                 lobbyroom: $('#new-lobby-room-template'),
                 otherlobbyroom: $('#new-other-lobby-room-template'),
-                commandConfirm: $('#command-confirm-template')
+                commandConfirm: $('#command-confirm-template'),
+                modalMessage: $('#modal-message-template')
             };
             $reloadMessageNotification = $('#reloadMessageNotification');
             $fileUploadButton = $('.upload-button');
@@ -1152,12 +1153,11 @@
             $downloadIcon.click(function () {
                 var room = getCurrentRoomElements();
 
-                if (room.isLobby()) {
-                    return; //Show a message?
-                }
-
-                if (room.isLocked()) {
-                    return; //Show a message?
+                if (room.isLobby() || room.isLocked()) {
+                    var title = utility.getLanguageResource('Client_DownloadMessages');
+                    var message = utility.getLanguageResource('Client_DownloadMessagesNotOpen', room.getName());
+                    ui.addModalMessage(title, message, 'icon-cloud-download');
+                    return;
                 }
 
                 $downloadDialog.modal({ backdrop: true, keyboard: true });
@@ -2095,6 +2095,18 @@
                     this.addMessage(content, 'pm', rooms[r].getName());
                 }
             }
+        },
+        addModalMessage: function (title, message, icon) {
+            var deferred = $.Deferred();
+            var $dialog = templates.modalMessage.tmpl({ Title: title, Body: message, Icon: icon }).appendTo('#dialog-container').modal()
+                .on('hidden.bs.modal', function () {
+                    $dialog.remove();
+                    deferred.resolve();
+                })
+                .on('click', 'a.btn', function () {
+                    $dialog.modal('hide');
+                });
+            return deferred.promise();
         },
         hasFocus: function () {
             return focus;

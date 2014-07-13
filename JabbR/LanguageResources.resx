@@ -977,7 +977,7 @@ Use ? or type /? to display the FAQ and list of commands.</value>
     <value>Invitation to {0} to join #{1} has been sent.</value>
   </data>
   <data name="Chat_YouKickedFromRoom" xml:space="preserve">
-    <value>You were kicked from {0}.</value>
+    <value>You were kicked from {0} by {1}.</value>
   </data>
   <data name="Chat_YouRevokedUserRoomAccess" xml:space="preserve">
     <value>You have revoked {0}'s access to {1}.</value>
@@ -1254,10 +1254,37 @@ Use ? or type /? to display the FAQ and list of commands.</value>
   <data name="Lmgtfy_DataRequired" xml:space="preserve">
     <value>A search query is required.</value>
   </data>
-  <data name="Lmbtfy_DataRequired" xml:space="preserve">
-    <value>A search query is required.</value>
+  <data name="Chat_YouKickedTitle" xml:space="preserve">
+    <value>Kicked</value>
   </data>
-  <data name="Lmgtfy_DataRequired" xml:space="preserve">
-    <value>A search query is required.</value>
+  <data name="Client_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Chat_UserBanned" xml:space="preserve">
+    <value>{0} was banned by {1}.</value>
+  </data>
+  <data name="Chat_UserBannedReason" xml:space="preserve">
+    <value>{0} was banned by {1} for "{2}".</value>
+  </data>
+  <data name="Chat_UserKickedFromRoom" xml:space="preserve">
+    <value>{0} was kicked from {1} by {2}.</value>
+  </data>
+  <data name="Chat_UserKickedFromRoomReason" xml:space="preserve">
+    <value>{0} was kicked from {1} by {2} for "{3}".</value>
+  </data>
+  <data name="Chat_YouBanned" xml:space="preserve">
+    <value>You have been banned by {0}.</value>
+  </data>
+  <data name="Chat_YouBannedReason" xml:space="preserve">
+    <value>You have been banned by {0} for "{1}".</value>
+  </data>
+  <data name="Chat_YouBannedTitle" xml:space="preserve">
+    <value>Banned</value>
+  </data>
+  <data name="Chat_YouKickedFromRoomReason" xml:space="preserve">
+    <value>You were kicked from {0} by {1} for "{2}".</value>
+  </data>
+  <data name="Client_DownloadMessagesNotOpen" xml:space="preserve">
+    <value>{0} is not an open room, messages cannot be downloaded.</value>
   </data>
 </root>
