@@ -2579,6 +2579,33 @@ namespace JabbR {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Posts a link instructing how a user can Bing the query for themselves using the lmbtfy.com API..
+        /// </summary>
+        public static string Lmbtfy_CommandInfo {
+            get {
+                return ResourceManager.GetString("Lmbtfy_CommandInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A search query is required..
+        /// </summary>
+        public static string Lmbtfy_DataRequired {
+            get {
+                return ResourceManager.GetString("Lmbtfy_DataRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A search query is required..
+        /// </summary>
+        public static string Lmgtfy_DataRequired {
+            get {
+                return ResourceManager.GetString("Lmgtfy_DataRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading....
         /// </summary>
         public static string LoadingMessage {
