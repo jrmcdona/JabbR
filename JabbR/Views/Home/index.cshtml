@@ -24,6 +24,7 @@
             .Add("~/Content/themes/default/Chat.bbcnews.css")
             .Add("~/Content/themes/default/Chat.githubissues.css")
             .Add("~/Content/themes/default/Chat.dictionary.css")
+            .Add("~/Content/Highlight/github.css")
             .Add("~/Content/KeyTips.css")
             .Add("~/Content/emoji20.css")
             .Render("~/Content/JabbR_#.css"));
@@ -47,7 +48,7 @@
         <li class="message ${highlight} clearfix{{if isMine}} my-message{{/if}}{{if showUser}} first{{/if}}" id="m-${id}" data-name="${name}" data-timestamp="${date}">
             <div class="left">
                 {{if showUser}}
-                <div class="user ${status} ${presence}">
+                <div class="user ${status} ${presence} message-user" data-name="${name}">
                     <div class="user-status-container">
                         <i class="user-status"></i>
                     </div>
@@ -177,6 +178,21 @@
             </div>
         </div> 
     </script>
+    <script id="modal-message-template" type="text/x-jquery-tmpl">
+        <div class="modal hide fade">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">&times;</a>
+                <h3>${Title}</h3>
+            </div>
+            <div class="modal-body">
+                {{if Icon}}<i class="${Icon} icon-4x pull-left"></i>{{/if}}
+                {{html Body}}
+            </div>
+            <div class="modal-footer">
+                <a class="btn" href="#">@LanguageResources.Client_Close</a>
+            </div>
+        </div>
+    </script>
     <!-- TweetContentProvider: Should be extracted out if other content providers need templates -->
     <script id="tweet-template" type="text/x-jquery-tmpl">
         <div class="collapsible_content">
@@ -213,7 +229,7 @@
                                 {{/if}}
                             </div>
                             <div class="formatted-content">
-                                <div class="content-body wikistyle markdown-format">
+                                <div class="content-body wikistyle">
                                     <p>
                                         {{html body}}
                                     </p>
@@ -242,7 +258,7 @@
                             </p>
                             <a href="${html_url}" target="_blank"><h2 class="content-title">${title}</h2></a>
                             <div class="formatted-content">
-                                <div class="content-body wikistyle markdown-format">
+                                <div class="content-body wikistyle">
                                     <p>
                                         {{html body}}
                                     </p>
@@ -374,7 +390,9 @@
                 <input type="file" id="hidden-file" name="data">
             </div>
         </form>
-        <audio src="Content/sounds/notification.wav" id="notificationSound" hidden="hidden" aria-hidden="true">
+        <audio id="notificationSound" hidden="hidden" aria-hidden="true">
+            <source src="Content/sounds/notification.wav" type="audio/wave" />
+            <source src="Content/sounds/notification.mp3" type="audio/mpeg" />
         </audio>
         <section id="dialog-container" aria-hidden="true" aria-haspopup="true">
             <div id="disconnect-dialog" class="modal hide fade">
@@ -513,9 +531,10 @@
             .Add("~/Scripts/jquery.sortElements.js")
             .Add("~/Scripts/ba-linkify.min.js")
             .Add("~/Scripts/quicksilver.js")
-            .Add("~/Scripts/Markdown.Converter.js")
+            .Add("~/Scripts/marked.js")
             .Add("~/Scripts/jquery.history.js")
             .Add("~/Scripts/moment.min.js")
+            .Add("~/Scripts/highlight.pack.js")
             .Add("~/Scripts/livestamp.min.js")
             .Add("~/Chat.emoji.js")
             .Add("~/Chat.utility.js")
